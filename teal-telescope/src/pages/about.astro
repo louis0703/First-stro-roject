@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 const pagetitle = "关于我";
 
 const identity = {
@@ -13,6 +15,10 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillcolor = "crimson";
+const fontWeight = "bold"
+const textCase = "uppercase"
 ---
 
 <html>
@@ -25,12 +31,26 @@ const goal = 3;
     </head>
 
     <body>
+        <h1>{pagetitle}</h1>
+        
         <a href="/">首页</a>
         <a href="/about/">关于</a>
         <a href="/blog">blog</a>
 
-        <h1>我的 Astro 网站</h1>
-        <h1>{pagetitle}</h1>
+
+        <style define:vars={{ skillcolor , fontWeight , textCase}}>
+            h1 {
+                color: purple;
+                font-size: 3rem;
+            }
+
+            .skill{
+                color: var(--skillcolor);
+                font-weight: var(--fontWeight);
+                text-transform: var(--textCase);
+            }
+        </style>
+
         <h2>……和我的新 Astro 网站！</h2>
 
         <p>我正在学习 Astro 的入门教程。这是我网站上的第二个页面，也是我自己建立的第一页面！</p>
@@ -45,10 +65,10 @@ const goal = 3;
                     <li>我的两个习惯：{identity.hobbies[0]}和{identity.hobbies[1]}</li>
                 }
             </ul>
-            
+
         <p>我的技能是：</p>
             <ul>
-                {skills.map((skill) => <li>{skill}</li>)}
+                {skills.map((skill) => <li class = "skill">{skill}</li>)}
             </ul>
 
         {happy && <p>我非常乐意学习 Astro！</p>}
