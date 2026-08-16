@@ -9,16 +9,31 @@ body {
   max-width: 80ch;
   padding: 1rem;
   line-height: 1.5;
-  
-}
-
-a {
-  cursor: url('/mouse/pointer.svg') 8 8, pointer;
 }
 
 * {
   box-sizing: border-box;
-  cursor: url('/mouse/cursor.svg') 8 8, move;
+  cursor: none; /* 隐藏原生光标 */
+}
+
+/* 自定义光标 */
+.custom-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  pointer-events: none;
+  will-change: transform;
+  z-index: 99999;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('/mouse/普通.gif');
+}
+
+.custom-cursor[data-state="pointer"] {
+  background-image: url('/mouse/交互.gif');
 }
 
 h1 {
