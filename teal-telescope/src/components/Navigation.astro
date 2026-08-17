@@ -1,10 +1,7 @@
 ---
+import { navItems } from '../data';
 ---
 
 <div id="main-menu" class="nav-links">
-
-    <a href="/">首页</a>
-    <a href="/about/">关于</a>
-    <a href="/blog">blog</a>
-    <a href="/tags/">标签</a>
+    {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
 </div>
